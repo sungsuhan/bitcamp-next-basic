@@ -1,13 +1,9 @@
 {
-        "compilerOptions": {
-            "baseUrl": "./pages"
-        },
-        "include": [
-            "pages/**/*.js",
-            "redux/**/*.ts"
-          ],
-          "exclude": [
-            "node_modules",
-            "**/*.spec.ts"
-          ]
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths":{"@/*": ["*"]}
+  },
+    "exclude": [
+      "node_modules", ".next"
+    ]
 }

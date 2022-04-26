@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import tableStyles from '../common/styles/table.module.css'
+import tableStyles from '../common/styles/Table.module.css'
 import { useDispatch } from 'react-redux'
 import { addBoard } from '../../redux/reducers/boardReducer.ts'
 export default function Board(){
@@ -12,13 +12,10 @@ export default function Board(){
     }
 
    
-    return (
-        <form onSubmit={e => {
+    return (<form onSubmit={e => {
         e.preventDefault()
-        dispatch(boardActions.boardRequest(board))
-            setInputs({
-                title:'', name:'', teamid:'', subject:''
-            })
+        
+        if(inputs) dispatch(addBoard(inputs))
     }}><table className={tableStyles.table}>
         <thead>
             <tr>
@@ -45,7 +42,7 @@ export default function Board(){
                     <label htmlFor="team">주제</label>
                 </td>
                 <td >
-                    <select id="teamid" name="teamid" onChange={handleChange}>
+                    <select id="teamId" name="teamId" onChange={handleChange}>
                         <option value="">주제 선택</option>
                         <option value="K09">영화</option>
                         <option value="K02">도서</option>

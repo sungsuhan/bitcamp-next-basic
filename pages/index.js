@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import tableStyles from './common/styles/table.module.css'
+import tableStyles from '@/styles/table.module.css'
 import axios from "axios";
 
 export default function Home() {
@@ -13,8 +13,7 @@ export default function Home() {
         document.getElementById("timeZone").innerHTML = '<h1>현재시간: '+data.now+'<h1>'
       });
     }else{
-      const currentUser = JSON.parse(loginUser)
-      document.getElementById("timeZone").innerHTML = '<h1>환영합니다: '+currentUser.user.name+'<h1>'
+      document.getElementById("timeZone").innerHTML = '<h1>환영합니다: '+user.name+'<h1>'
     }
     
   },[]);

@@ -3,17 +3,16 @@ import { useEffect, useState } from 'react';
 import tableStyles from '../common/styles/table.module.css'
 import Link from 'next/link'
 
-export default function GetUser(){
+export default function GetUsers(){
 
     const columns = ["사용자ID", "이름", "이메일", "전화번호", "생년월일", "주소"];
     const [data, setData] = useState([])
-    
     useEffect(()=>{
-      axios.get('http://localhost:5000/api/user/getUser').then(res=>{
+      axios.get('http://localhost:5000/api/user/getUsers').then(res=>{
         setData(res.data.users)
       }).catch(err=>{})
     },[])
-    return (<>
+    return (
       <table className={tableStyles.table}>
         <thead>
             <tr>
@@ -48,6 +47,5 @@ export default function GetUser(){
             
         </tbody>
       </table>
-      </>
     );
 }

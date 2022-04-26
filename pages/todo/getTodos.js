@@ -1,13 +1,14 @@
 import axios from "axios";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import TableStyle from "../common/styles/table.module.css"
+import { useDispatch } from "react-redux";
+import tableStyles from '../../styles/Table.module.css'
 
-export default function GetTodo(){
-
+export default function GetTodos(){
     const columns = ["할일"]
     const [data, setData] = useState('')
     useEffect(()=>{
-        axios.get('http://localhost:5000/api/todo/getTodo').then(res=>{
+        axios.get('http://localhost:5000/api/todo/get').then(res=>{
             setData(res.data.todos)
     }).catch(err=>{})
 },[])
@@ -15,18 +16,14 @@ export default function GetTodo(){
         <table className={TableStyle.table}>
             <thead>
                 <tr>
-                    {columns.map((column, index) => (
-                        <td key={index} >{column}</td>
-                    ))}
                     <td>
                         할일목록
                     </td>
                 </tr>
             </thead>
             <tbody>
-                    {data.length == 0 ?<tr>
-                                        <td colSpan={1}>등록된 일정이 없습니다</td>   
-                                        </tr>    
+                    {data.length == 0 ? 
+                    <div>현재 등록된 일정이 없습니다</div>          
                     :data.map((todo) => (
                         <tr key={todo.task}>
                         <td>
