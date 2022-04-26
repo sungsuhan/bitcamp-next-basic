@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Footer(){
-    return (<footer>
+    /*return (<footer>
                 <hr/>
                 <div data-attribute-id="fnb" data-fnb-kind="investment">
                     <img style={{width:30}} src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress" alt="logo"/>
@@ -32,5 +32,11 @@ export default function Footer(){
                     <a href="https://nodejs.org/ko/" target="_blank">노드</a> : Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
                 </div>
             </footer>
+    )*/
+    return (
+        <footer>
+        <hr/>
+            <img style={{width:150}} src="http://www.softworks.co.kr/assets/images/common/top_logo.gif" alt="logo"/>
+        </footer>
     )
 }
